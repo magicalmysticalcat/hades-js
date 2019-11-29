@@ -1,6 +1,6 @@
 {
   "name": "@goldenius/hades-js",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Calculate positions of the planets from an geocentric perspective, ASC, MC, houses and aspects providing date, time, and coordinates.",
   "main": "./distribution/index.js",
   "scripts": {
