@@ -1,3 +1,8 @@
 
 var hadesJs = require('../distribution/index.js');
-hadesJs.Init();
+
+async function test ()
+{
+    await hadesJs.Init();
+    console.log('it worked');
+}
