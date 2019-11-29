@@ -7,11 +7,11 @@
 - Placidus and Fixed house systems.
 - ASC, MC, Julian day and sidereal time.
 
-####Install
+#### Install
 
 `$ npm install @goldenius/hades-js`
 
-####Usage
+#### Usage
 Before using this library, it's necessary to initialise it so it loads some needed resources:
 ```javascript
 let hadesJs = require("@goldenius/hades-js")
