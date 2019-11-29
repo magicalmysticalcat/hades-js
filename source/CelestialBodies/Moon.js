@@ -1,5 +1,4 @@
 import CelestialBody from './CelestialBody';
-import { setup } from 'paper';
 
 class Moon extends CelestialBody 
 {
