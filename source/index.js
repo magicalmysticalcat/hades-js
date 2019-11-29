@@ -1,3 +1,7 @@
 const Astrologer = require('./Astrologer');
+const TimeConversions = require('./TimeConversions');
 
-module.exports = new Astrologer.default();
+module.exports = {
+    Astrologer : Astrologer.default, 
+    TimeConversions: TimeConversions.default
+};

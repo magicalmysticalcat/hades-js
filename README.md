@@ -14,8 +14,9 @@
 #### Usage
 Before using this library, it's necessary to initialise it so it loads some needed resources:
 ```javascript
-let hadesJs = require("@goldenius/hades-js")
-await hadesJs.Init();
+const {Astrologer} = require("@goldenius/hades-js")
+let astrologer = new Astrologer();
+await astrologer.Init();
 ```
 
 The easiest way to retrieve planetary positions with aspects and house calculations is to input:
@@ -26,11 +27,13 @@ The easiest way to retrieve planetary positions with aspects and house calculati
 for example:
 ```javascript
 
-var hadesJs = require('@goldenius/hades-js');
+const {Astrologer} = require('../distribution/index.js');
 var moment = require('moment-timezone');
 
-await hadesJs.Init();
-let planets = hadesJs.CalculateCelestialBodiesAndTime(moment(),"GB",{latitude:33,longitude:55});
+let astrologer = new Astrologer();
+await astrologer.Init();
+let planets = astrologer.CalculateCelestialBodiesAndTime(moment(),"GB",{latitude:33,longitude:55});
 console.log(JSON.stringify(planets));
+
 
 ```
