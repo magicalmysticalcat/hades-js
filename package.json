@@ -12,7 +12,8 @@
     "dev": "node ./tests/initializationTests.js",
     "build": "babel source --presets babel-preset-env --out-dir distribution",
     "prepublish": "npm run build",
-    "copyResources": "cp -r ./source/resources  ./distribution/resources"
+    "copyResources": "cp -r ./source/resources  ./distribution/resources",
+    "check-types": "tsc"
   },
   "keywords": [
     "astrology",
@@ -30,9 +31,14 @@
     "moment-timezone-all": "^0.5.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "typescript": "^3.7.2"
   }
 }
