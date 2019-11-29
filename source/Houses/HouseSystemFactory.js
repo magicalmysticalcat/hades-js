@@ -1,6 +1,6 @@
 import PlacidusSystem from './PlacidusSystem';
 import FixedSystem from './FixedSystem';
-import ZodiacFactory from '../Zodiac/ZodiacFactory';
+import CreateZodiacSign from '../Zodiac/ZodiacFactory';
 
 class HouseSystemFactory
 {
@@ -28,7 +28,7 @@ class HouseSystemFactory
 
     static GetDecoratedHouse(section,cuspDegree)
     {
-        let zodiacSign = ZodiacFactory.CreateZodiacSign(cuspDegree);
+        let zodiacSign = CreateZodiacSign(cuspDegree);
         return  { 
             House:section,
             Sign:zodiacSign,
