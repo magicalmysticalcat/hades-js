@@ -14,7 +14,10 @@ Don't use this module comercially. It's not stable and I'm still working on the 
 `$ npm install @goldenius/hades-js`
 
 #### Usage
-Before using this library, it's necessary to initialise it so it loads some needed resources:
+
+At the moment you may only get data for dates between 1900-2050. This is because Hades at the moment does not calculate the points from scratch. It relies on ephemeris (check the resources folder) fed into it.
+
+Before using this module, it's necessary to load the resources:
 ```javascript
 const {Astrologer} = require("@goldenius/hades-js")
 let astrologer = new Astrologer();
