@@ -28,7 +28,7 @@ for example:
 ```javascript
 
 const {Astrologer} = require('../distribution/index.js');
-var moment = require('moment-timezone');
+const moment = require('moment-timezone');
 
 let astrologer = new Astrologer();
 await astrologer.Init();
