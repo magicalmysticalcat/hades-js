@@ -1,0 +1,29 @@
+{
+  "name": "hades-js",
+  "version": "1.0.0",
+  "description": "Calculate positions of the planets from an geocentric perspective, ASC, MC, houses and aspects providing date, time, and coordinates.",
+  "main": "./distribution/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel source --presets babel-preset-env --out-dir distribution",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "astrology",
+    "placidus",
+    "ascendant",
+    "planetary-aspects"
+  ],
+  "author": "Brian Langer <brian@supracoelum.com> (http://www.supracoelum.com)",
+  "license": "MIT",
+  "dependencies": {
+    "meeusjs": "^1.0.4",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.21",
+    "moment-timezone-all": "^0.5.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
