@@ -4,9 +4,11 @@
   "description": "Calculate positions of the planets from an geocentric perspective, ASC, MC, houses and aspects providing date, time, and coordinates.",
   "main": "./distribution/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run prepublish && npm run copyResources && npm run dev",
+    "dev": "node ./tests/initializationTests.js",
     "build": "babel source --presets babel-preset-env --out-dir distribution",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "copyResources": "cp -r ./source/resources  ./distribution/resources"
   },
   "keywords": [
     "astrology",
