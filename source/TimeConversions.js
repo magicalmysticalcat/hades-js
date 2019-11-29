@@ -2,6 +2,11 @@ import A from 'meeusjs';
 
 class TimeConversions
 {
+    constructor()
+    {
+
+    }
+    
     GetTrueSiderealTimeInSeconds(utcDateObj, longitude)
     {
         let jdo = new A.JulianDay(new Date(utcDateObj.format()));

@@ -7,7 +7,7 @@ const CountriesAndTimezones = require('./CountriesAndTimezones');
 module.exports = {
     Astrologer : Astrologer.default, 
     TimeConversions: TimeConversions.default,
-    ZodiacFactory: ZodiacFactory.default,
+    ZodiacFactory: ZodiacFactory,
     MathCalcs: MathCalcs.default,
     CountriesAndTimezones: CountriesAndTimezones.default
 };

@@ -13,6 +13,7 @@ import Pisces from './Pisces';
 
 class ZodiacFactory
 {
+
     static CreateZodiacSign(degree)
     {
         if(degree>=0 && degree <30 || degree == 360)
