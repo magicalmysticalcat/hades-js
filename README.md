@@ -1,6 +1,8 @@
 
 # Hades-js
 
+Don't use this module comercially. It's not stable and I'm still working on the tests and improvements like retrogrades, mid-points, etc.
+
 ### Features
 
 - Planetary positions from a geocentric point of view.
