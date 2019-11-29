@@ -25,5 +25,10 @@ The easiest way to retrieve planetary positions with aspects and house calculati
 
 for example:
 ```javascript
-let dateForNow = moment();
-let celestialBodies = this.hadesJs.CalculateCelestialBodiesAndTime(dateForNow,"GB",{longitude:"-50",latitude:"20"});
+var hadesJs = require('@goldenius/hades-js');
+var moment = require('moment-timezone');
+
+await hadesJs.Init();
+let planets = hadesJs.CalculateCelestialBodiesAndTime(moment(),"GB",{latitude:33,longitude:55});
+console.log(JSON.stringify(planets));
+```
