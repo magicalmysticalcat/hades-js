@@ -27,7 +27,6 @@ for example:
 ```javascript
 var hadesJs = require('@goldenius/hades-js');
 var moment = require('moment-timezone');
-
 await hadesJs.Init();
 let planets = hadesJs.CalculateCelestialBodiesAndTime(moment(),"GB",{latitude:33,longitude:55});
 console.log(JSON.stringify(planets));
