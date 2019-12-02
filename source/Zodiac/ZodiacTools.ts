@@ -1,6 +1,6 @@
 class ZodiacTools
 {
-    static GetRelativeZodiacDegree(degree)
+    static GetRelativeZodiacDegree(degree: number) : number
     {
         while(degree>=30)
             degree -= 30;

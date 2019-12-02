@@ -1,6 +1,6 @@
 import moment from 'moment-timezone';
 import AspectCalculator from './AspectCalculator';
-import Ephemeris from './Ephemeris';
+import Ephemeris from './Ephemeris/Ephemeris';
 import HouseSystemFactory from './Houses/HouseSystemFactory';
 import TimeConversions from './TimeConversions';
 import CountriesAndTimezones from './CountriesAndTimezones'

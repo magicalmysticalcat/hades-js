@@ -10,9 +10,10 @@ import Sagitarius from './Sagitarius';
 import Capricorn from './Capricorn';
 import Aquarius from './Aquarius';
 import Pisces from './Pisces';
+import ZodiacSign from './ZodiacSign';
 
 
-function CreateZodiacSign(degree)
+function CreateZodiacSign(degree: number): ZodiacSign
 {
     if(degree>=0 && degree <30 || degree == 360)
         return new Aries();

@@ -1,5 +1,6 @@
 
 class AspectCalculator {
+	
 	CalculateAspects(planets) {
 		let allAspects = [];
 		let analizedPlanetsRelationships = [];

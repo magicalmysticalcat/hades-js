@@ -2,12 +2,13 @@ import MathCalcs from '../MathCalcs.js';
 
 class HouseSystem
 {
+    MathCalcs: MathCalcs;
     constructor()
     {
         this.MathCalcs = new MathCalcs();
     }
 
-    CuspMidheaven(RA)
+    CuspMidheaven(RA: number)
     {
         RA = this.MathCalcs.RFromD(RA);
         let E = this.MathCalcs.RFromD(this.MathCalcs.e);

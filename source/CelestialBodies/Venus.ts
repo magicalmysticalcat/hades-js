@@ -1,11 +1,12 @@
 import CelestialBody from './CelestialBody';
+import Orbs from './Orbs';
 
 class Venus extends CelestialBody 
 {
-    constructor(totalDegree)
+    constructor(totalDegree: number)
     {
         super(totalDegree, "Venus",'D');
-        this.Orbs = {Conjunction:7, Opposition:7, Square:7, Trine:7, Sextile:5};
+        this.Orbs = new Orbs(7, 7, 7, 7,5);
         this.Id = '6';
     }
 }
