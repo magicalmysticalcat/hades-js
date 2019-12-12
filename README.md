@@ -32,7 +32,7 @@ The easiest way to retrieve planetary positions with aspects and house calculati
 for example:
 ```javascript
 
-const {Astrologer} = require('../distribution/index.js');
+const {Astrologer} = require("@goldenius/hades-js");
 const moment = require('moment-timezone');
 
 let astrologer = new Astrologer();
