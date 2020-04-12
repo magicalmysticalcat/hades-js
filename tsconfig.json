@@ -1,12 +1,17 @@
 {
-    "compilerOptions": {
-      "outDir": "./distribution/",
-      "noImplicitAny": true,
-      "module": "es6",
-      "target": "es5",
-      "jsx": "react",
-      "allowJs": true,
+  "compileOnSave": true,
+  "compilerOptions": {
+      "module": "commonjs",
+      "outDir": "tmp",
+      "target": "ES6",
       "resolveJsonModule": true,
       "esModuleInterop": true,
-    }
-  }
+      "allowSyntheticDefaultImports":true,
+      "types" : [
+          "jasmine"
+      ]
+  },
+  "exclude": [
+      "node_modules"
+  ]
+}

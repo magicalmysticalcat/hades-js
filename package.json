@@ -6,15 +6,6 @@
     "type": "git",
     "url": "https://github.com/magicalmysticalcat/hades-js.git"
   },
-  "main": "./distribution/index.js",
-  "scripts": {
-    "test": "npm run prepublish && npm run copyResources && npm run dev",
-    "dev": "node ./tests/initializationTests.js",
-    "build": "babel source --presets babel-preset-env --out-dir distribution",
-    "prepublish": "npm run build",
-    "copyResources": "cp -r ./source/resources  ./distribution/resources",
-    "check-types": "tsc"
-  },
   "keywords": [
     "astrology",
     "placidus",
@@ -23,22 +14,21 @@
   ],
   "author": "Brian Langer <brian@supracoelum.com> (http://www.supracoelum.com)",
   "license": "MIT",
+  "scripts": {
+    "test": "karma start"
+  },
   "dependencies": {
-    "babel-runtime": "^6.26.0",
+    "@types/jasmine": "^3.4.0",
+    "jasmine-core": "^3.3.0",
+    "karma": "^4.3.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-cli": "^2.0.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-typescript": "latest",
     "meeusjs": "^1.0.4",
+    "typescript": "latest",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.21",
     "moment-timezone-all": "^0.5.5"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
-    "@babel/preset-typescript": "^7.7.4",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "typescript": "^3.7.2"
   }
 }
