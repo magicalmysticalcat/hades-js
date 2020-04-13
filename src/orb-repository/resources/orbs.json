@@ -27,6 +27,13 @@
         "Trine":7, 
         "Sextile":5
     },
+    "Mercury":{
+        "Conjunction":7, 
+        "Opposition":7, 
+        "Square":7, 
+        "Trine":7, 
+        "Sextile":5
+    },
     "Jupiter":{
         "Conjunction":7, 
         "Opposition":7, 
@@ -56,6 +63,20 @@
         "Sextile":5
     },
     "Neptune":{
+        "Conjunction":7, 
+        "Opposition":7, 
+        "Square":7, 
+        "Trine":7, 
+        "Sextile":5
+    },
+    "TrueNode":{
+        "Conjunction":7, 
+        "Opposition":7, 
+        "Square":7, 
+        "Trine":7, 
+        "Sextile":5
+    },
+    "MeanNode":{
         "Conjunction":7, 
         "Opposition":7, 
         "Square":7, 

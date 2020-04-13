@@ -1,12 +1,12 @@
 import CelestialBody from "../models/CelestialBody";
-import { IOrbRepository } from "./orb-repository.interface";
+import { IOrbRepository } from "../orb-repository/orb-repository.interface";
 import Aspects from './resources/aspects.json';
 import { AnalyzedRelationship } from "./model/AnalyzedRelationship";
 import { IAspectService } from "./aspect-service.interface";
 
 export class AspectService implements IAspectService{
 
-	private _aspects = Aspects as any;
+	private aspects = Aspects as any;
 
 	constructor(private orbRepository:IOrbRepository){}
 	
@@ -26,7 +26,7 @@ export class AspectService implements IAspectService{
 			}
 		}
 		let flattenedArray = this.FlattenDeep(allAspects);
-		return flattenedArray;
+		return flattenedArray; 
 	}
 
 	private IsPlanetRelationshipAnalized(celestialBody1:CelestialBody, 
@@ -49,8 +49,8 @@ export class AspectService implements IAspectService{
 							celestialBody1.TotalDegree - celestialBody2.TotalDegree : 
 							celestialBody2.TotalDegree - celestialBody1.TotalDegree;
 		let aspects = [];
-		for(let aspectName in this._aspects){
-			let aspectValue = this._aspects[aspectName];
+		for(let aspectName in this.aspects){
+			let aspectValue = this.aspects[aspectName];
 			let isAspected = this.IsAspected(distance, celestialBody1, aspectName, aspectValue);
 			if(isAspected)
 			{
@@ -71,7 +71,7 @@ export class AspectService implements IAspectService{
 				aspectName:string,
 				aspectValue:number):boolean
 	{
-		let orb = this.orbRepository.GetOrbValue(celestialBody.Name,aspectName)
+		let orb = this.orbRepository.GetOrbValue(celestialBody.Name,aspectName);
 		let aspectRule = aspectValue;
 		let aspectPlusOrb = aspectRule + orb;
 		let aspectLessOrb = aspectRule - orb;

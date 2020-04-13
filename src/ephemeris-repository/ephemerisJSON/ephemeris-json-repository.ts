@@ -10,19 +10,19 @@ import { TimeConversions } from "../../time-conversions/time-conversions";
 
 export class EphemerisJSONRepository implements IEphemerisRepository{
 
-    private _ephemerisDb: EphemerisDbYear[];
+    private ephemerisDb: EphemerisDbYear[];
 
     constructor(
-        private _timeConversions: TimeConversions
+        private timeConversions: TimeConversions
     ){}
 
     public Load(): void {
-        this._ephemerisDb = EphemerisSource as EphemerisDbYear[];
+        this.ephemerisDb = EphemerisSource as EphemerisDbYear[];
     }
     
     public GetLine(dateTime: moment.Moment, longitude: number): EphemerisLine {
         let ephemerisLines = this.GetEphemerisLinesByDateWithPadding(dateTime,1);
-        let eventTrueSidTimeInSeconds = this._timeConversions.GetTrueSiderealTimeInSeconds(dateTime,longitude);
+        let eventTrueSidTimeInSeconds = this.timeConversions.GetTrueSiderealTimeInSeconds(dateTime,longitude);
         let eventTimeInDecimal = dateTime.hour() + (dateTime.minute() / 60) + (dateTime.second() / 60 / 60);
         let olderLine = ephemerisLines[1];
         let newestLine = ephemerisLines[2];
@@ -86,7 +86,7 @@ export class EphemerisJSONRepository implements IEphemerisRepository{
     {
         let formattedDate = date.year()+'-'+(date.month()+1)+'-'+date.date();
 
-        let ephemerisDbYear = this._ephemerisDb.find((ephemerisDbYear: EphemerisDbYear)=>
+        let ephemerisDbYear = this.ephemerisDb.find((ephemerisDbYear: EphemerisDbYear)=>
                     {
                         if(ephemerisDbYear.year == date.year())
                         {

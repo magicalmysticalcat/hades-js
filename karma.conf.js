@@ -17,7 +17,8 @@ module.exports = function(config) {
       reporters: ["dots", "karma-typescript"],
       customLaunchers: {
         ChromeDebugging: {
-          base: 'Chrome'
+          base: 'Chrome',
+          flags: ['--remote-debugging-port=9333']
         }
       },
       browsers: ["ChromeDebugging"],

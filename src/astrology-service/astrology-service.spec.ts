@@ -8,8 +8,13 @@ import { IWorldTimezoneRepository } from '../world-timezone-repository/world-tim
 import { GeodeticLocation } from '../models/Location';
 import {IAspectService} from '../aspect-service/aspect-service.interface'
 import { AspectService } from '../aspect-service/aspect-service';
-import { IOrbRepository } from '../aspect-service/orb-repository.interface';
-import { OrbJSONRepository } from '../aspect-service/orb-json-repository';
+import { IOrbRepository } from '../orb-repository/orb-repository.interface';
+import { OrbJSONRepository } from '../orb-repository/orb-json-repository';
+import CelestialBody from '../models/CelestialBody';
+import { HouseSystemFactory } from '../houses-service/house-system-factory';
+import { TrigonometricUtilities } from '../trigonometric-utilities/trigonometric-utilities';
+import { ZodiacFactory } from '../zodiac-service/zodiac-factory';
+import { HouseSystemType } from '../houses-service/house-system-type';
 
 describe("AstrologyService", () => {
 
@@ -19,23 +24,31 @@ describe("AstrologyService", () => {
     let worldTimezoneRepository: IWorldTimezoneRepository;
     let aspectService: IAspectService;
     let orbRepository: IOrbRepository;
+    let houseSystemFactory: HouseSystemFactory;
+    let trigonometricUtilities: TrigonometricUtilities;
+    let zodiacFactory: ZodiacFactory;
 
     timeConversions = new TimeConversions();
     ephemerisJSONRepository = new EphemerisJSONRepository(timeConversions);
     worldTimezoneRepository = new WorldTimezoneRepository();
     orbRepository = new OrbJSONRepository();
     aspectService = new AspectService(orbRepository);
+    trigonometricUtilities = new TrigonometricUtilities();
+    zodiacFactory = new ZodiacFactory();
+    houseSystemFactory = new HouseSystemFactory(trigonometricUtilities,zodiacFactory);
+
 
     astrologyService = new AstrologyService(ephemerisJSONRepository, 
                                             timeConversions, 
                                             worldTimezoneRepository,
-                                            aspectService);
+                                            aspectService,
+                                            houseSystemFactory);
 
     beforeEach(async function() {
         await astrologyService.Init();
     });
 
-    it("should match planets for 1984-12-26 19:00:00", () => {
+    fit("should have sun at 275deg", () => {
         let location = new GeodeticLocation('58w27','34s36');
         let result = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
                                     'America/Argentina/Buenos_Aires', 
@@ -44,13 +57,24 @@ describe("AstrologyService", () => {
         expect(sunRoundedValue).toEqual(275);
     });
 
-    it("should have neptune conjunct sun", () => {
+    fit("should have neptune conjunct sun", () => {
         let location = new GeodeticLocation('58w27','34s36');
-        let planets = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
+        let celestialBodies = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
                                     'America/Argentina/Buenos_Aires', 
-                                    location);
-        let aspects = astrologyService.CalculateAspects(planets);
-        console.log(JSON.stringify(aspects));
+                                    location).CelestialBodies;
+        let aspects = astrologyService.CalculateAspects(celestialBodies);
+        
+        expect(true).toBeTrue();
+    });
+
+    fit("should calculate placidus house system from date, time",()=>{
+        let location = new GeodeticLocation('58w27','34s36');
+        let houses = astrologyService.CalculateHouseSystem(HouseSystemType.Placidus, 
+                                                            moment('1984-12-26 19:00:00'),
+                                                            'America/Argentina/Buenos_Aires',
+                                                            location);
+
+        console.log(JSON.stringify(houses));
         expect(true).toBeTrue();
     });
 });

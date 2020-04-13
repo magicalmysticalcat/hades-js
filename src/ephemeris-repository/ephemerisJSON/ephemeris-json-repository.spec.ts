@@ -10,8 +10,7 @@ describe("EphemerisJSONRepository", () => {
     ephemerisJSONRepository = new EphemerisJSONRepository(timeConversions);
     ephemerisJSONRepository.Load();
 
-    it("should match natal chart 1", () => {
+    xit("should match natal chart 1", () => {
         let result = ephemerisJSONRepository.GetLine(moment('1984-12-26 22:00:00'),-57);
-        expect('Hello world!').toEqual("Hello world!");
     });
 });

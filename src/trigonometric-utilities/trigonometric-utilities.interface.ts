@@ -1,4 +1,12 @@
 export interface ITrigonometricUtilities {
+    readonly Pi:number;
+    readonly e:number;
+    readonly Pi2:number;
+    readonly PiHalf:number;
+    readonly DegreeMax:number;
+    readonly DegreeHalf:number;
+    readonly DegreeQuarter:number;
+    readonly Radian:number;
     RFromD(r:number):number;
     DFromR(r:number):number;
     Deg2Rad(r:number):number;

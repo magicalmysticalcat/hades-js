@@ -1,32 +1,34 @@
 import moment from 'moment-timezone';
 import {IAspectService} from '../aspect-service/aspect-service.interface';
 import {IEphemerisRepository} from '../ephemeris-repository/ephemeris-repository.interface';
-//import HouseSystemFactory from './Houses/HouseSystemFactory';
+import {HouseSystemFactory} from '../houses-service/house-system-factory';
 import {TimeConversions} from '../time-conversions/time-conversions';
 import {IWorldTimezoneRepository} from '../world-timezone-repository/world-timezone-repository.interface'
 import { GeodeticLocation } from '../models/Location';
+import { HouseSystemType } from '../houses-service/house-system-type';
 
 export class AstrologyService 
 {
     constructor (
-        private _ephemerisRepository:IEphemerisRepository,
-        private _timeConversions:TimeConversions,
-        private _worldTimezoneRepository: IWorldTimezoneRepository,
-        private _aspectService: IAspectService
+        private ephemerisRepository:IEphemerisRepository,
+        private timeConversions:TimeConversions,
+        private worldTimezoneRepository: IWorldTimezoneRepository,
+        private aspectService: IAspectService,
+        private houseSystemFactory: HouseSystemFactory
     )
     {
     }
 
     async Init()
     {
-        await this._ephemerisRepository.Load();
+        await this.ephemerisRepository.Load();
     }
 
     public CalculateCelestialBodiesAndTime(eventDate: moment,timeZone:string,location: GeodeticLocation)
     {
         let coordinates = this.GetLatAndLong(location,timeZone); 
         let dateObj = this.GetDateInUTC(eventDate,timeZone);
-        let ephemerisLine = this._ephemerisRepository.GetLine(dateObj, coordinates.longitude);
+        let ephemerisLine = this.ephemerisRepository.GetLine(dateObj, coordinates.longitude);
 
         return ephemerisLine;
     }
@@ -34,17 +36,17 @@ export class AstrologyService
     
     CalculateAspects(celestialBodies)
     {
-        return this._aspectService.CalculateAspects(celestialBodies);
+        return this.aspectService.CalculateAspects(celestialBodies);
     }
-    /*
-    CalculateHouseSystem(systemType, eventDate, timeZone, location)
+    
+    CalculateHouseSystem(systemType:HouseSystemType, eventDate:moment, timeZone:string, location:GeodeticLocation)
     {
         let coordinates = this.GetLatAndLong(location,timeZone); 
         let dateObj = this.GetDateInUTC(eventDate,timeZone);
         let trueSiderealTimeInSeconds = this.timeConversions.GetTrueSiderealTimeInSeconds(dateObj,coordinates.longitude);
 
-        return HouseSystemFactory.CreateHouseSystem(systemType,trueSiderealTimeInSeconds,coordinates);
-    }*/
+        return this.houseSystemFactory.CreateHouseSystem(systemType,trueSiderealTimeInSeconds,coordinates);
+    }
 
     GetLatAndLong(location: GeodeticLocation, timeZone: string)
     {
@@ -67,7 +69,7 @@ export class AstrologyService
 
     GetLocationGeodeticalCoordinates(zone)
     {
-        let locationDetails = this._worldTimezoneRepository.GetTimezoneInfo(zone)
+        let locationDetails = this.worldTimezoneRepository.GetTimezoneInfo(zone)
         let geodeticalLocation = {
             longitude:locationDetails.Longitude,
             latitude:locationDetails.Latitude

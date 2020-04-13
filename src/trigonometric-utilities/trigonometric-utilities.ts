@@ -2,14 +2,14 @@ import { ITrigonometricUtilities } from "./trigonometric-utilities.interface";
 
 export class TrigonometricUtilities implements ITrigonometricUtilities{
 
-    public Pi:number=Math.PI;
-    public e:number=23.456389;
-    public Pi2:number = this.Pi*2.0;
-    public PiHalf:number = this.Pi/2.0;
-    public DegreeMax:number= 360.0;
-    public DegreeHalf:number= 180.0;
-    public DegreeQuarter:number= 90;
-    public Radian:number=this.DegreeHalf/this.Pi;
+    public get Pi():number {return Math.PI};
+    public get e():number {return 23.456389};
+    public get Pi2():number {return this.Pi*2.0};
+    public get PiHalf():number {return this.Pi/2.0};
+    public get DegreeMax():number {return 360.0};
+    public get DegreeHalf():number {return 180.0};
+    public get DegreeQuarter():number {return 90};
+    public get Radian():number{return this.DegreeHalf/this.Pi};
 
     constructor() {}
 
