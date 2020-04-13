@@ -7,4 +7,5 @@ export {HouseSystemFactory} from './houses-service/house-system-factory';
 export {EphemerisJSONRepository} from './ephemeris-repository/ephemerisJSON/ephemeris-json-repository';
 export {AspectService} from './aspect-service/aspect-service';
 export {OrbJSONRepository} from './orb-repository/orb-json-repository';
-export {GeodeticLocation} from './models/GeodeticLocation'
+export {GeodeticLocation} from './models/GeodeticLocation';
+export {HouseSystemType} from './houses-service/house-system-type';

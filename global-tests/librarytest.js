@@ -2,7 +2,7 @@ const {AstrologyService, AspectService,
     EphemerisJSONRepository, OrbJSONRepository, 
     TrigonometricUtilities,HouseSystemFactory,
     TimeConversions, WorldTimezoneRepository, 
-    ZodiacFactory, GeodeticLocation} = require("../distribution/index.js");
+    ZodiacFactory, GeodeticLocation, HouseSystemType} = require("../distribution/index.js");
 const moment = require('moment-timezone');
 
 
@@ -20,15 +20,30 @@ let astrologyService = new AstrologyService(ephemerisJSONRepository,
                                         worldTimezoneRepository,
                                         aspectService,
                                         houseSystemFactory);
-testPlanetCalculation();
+
+let location = new GeodeticLocation('58w27','34s36');
+let date = moment('1984-12-26 19:00:00');
+let timezone = 'America/Argentina/Buenos_Aires';
+
+let celestialBodiesAndTime = testPlanetCalculation();
+let calculatedAspects = testAspects(celestialBodiesAndTime.CelestialBodies);
+let calculatedHouses = testHouseCalculation(HouseSystemType.Placidus);
+
+console.log(JSON.stringify(celestialBodiesAndTime));
+console.log(JSON.stringify(calculatedAspects));
+console.log(JSON.stringify(calculatedHouses));
                                         
-async function testPlanetCalculation()
+function testPlanetCalculation()
 {
-    await astrologyService.Init();
-    let location = new GeodeticLocation('58w27','34s36');
-    let result = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
-                                'America/Argentina/Buenos_Aires', 
-                                location);
-    let sunRoundedValue = Math.round(result.CelestialBodies[0].TotalDegree);
-    console.log(sunRoundedValue);
+    return astrologyService.CalculateCelestialBodiesAndTime(date, timezone, location);
+}
+
+function testAspects(celestialBodies)
+{
+    return astrologyService.CalculateAspects(celestialBodies);
+}
+
+function testHouseCalculation(houseSystemType)
+{
+    return astrologyService.CalculateHouseSystem(houseSystemType, date, timezone, location);
 }

@@ -14,5 +14,5 @@
       ]
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*","coverage","global-tests"]
+  "exclude": ["node_modules", "*.spec.*","coverage","global-tests"]
 }
