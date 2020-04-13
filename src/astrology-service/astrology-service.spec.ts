@@ -74,7 +74,6 @@ describe("AstrologyService", () => {
                                                             'America/Argentina/Buenos_Aires',
                                                             location);
 
-        console.log(JSON.stringify(houses));
         expect(true).toBeTrue();
     });
 });
