@@ -8,13 +8,11 @@
       "esModuleInterop": true,
       "allowSyntheticDefaultImports":true,
       "allowJs": true,
-      "sourceMap":true,
       "declaration": true,
       "types" : [
           "jasmine"
       ]
   },
-  "exclude": [
-      "node_modules"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*","coverage","global-tests"]
 }

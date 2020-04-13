@@ -1,6 +1,6 @@
 import { IEphemerisRepository } from "../ephemeris-repository.interface";
 import moment from 'moment';
-import * as EphemerisSource from './resources/ephemerisDb.json'
+import EphemerisSource from './resources/ephemerisDb.json'
 import EphemerisLine from "../../models/EphemerisLine";
 import EphemerisDbLine from "./model/EphemerisDbLine";
 import EphemerisDbYear from "./model/EphemerisDbYear";
@@ -10,14 +10,13 @@ import { TimeConversions } from "../../time-conversions/time-conversions";
 
 export class EphemerisJSONRepository implements IEphemerisRepository{
 
-    private ephemerisDb: EphemerisDbYear[];
+    private ephemerisDb = EphemerisSource as any;
 
     constructor(
         private timeConversions: TimeConversions
     ){}
 
     public Load(): void {
-        this.ephemerisDb = EphemerisSource as EphemerisDbYear[];
     }
     
     public GetLine(dateTime: moment.Moment, longitude: number): EphemerisLine {

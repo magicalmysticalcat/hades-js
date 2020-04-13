@@ -19,7 +19,7 @@
   "scripts": {
     "test": "karma start",
     "test-library": "npm run prepare && npm run dev",
-    "dev": "node ./src/global-tests/librarytest.js",
+    "dev": "node ./global-tests/librarytest.js",
     "prepare": "del-cli --force ./distribution && npm run build",
     "build": "tsc"
   },

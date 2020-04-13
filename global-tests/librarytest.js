@@ -2,8 +2,8 @@ const {AstrologyService, AspectService,
     EphemerisJSONRepository, OrbJSONRepository, 
     TrigonometricUtilities,HouseSystemFactory,
     TimeConversions, WorldTimezoneRepository, 
-    ZodiacFactory, GeodeticLocation} = require("../../distribution/src/index.js");
-const moment = require('moment');
+    ZodiacFactory, GeodeticLocation} = require("../distribution/index.js");
+const moment = require('moment-timezone');
 
 
 let timeConversions = new TimeConversions();
@@ -30,4 +30,5 @@ async function testPlanetCalculation()
                                 'America/Argentina/Buenos_Aires', 
                                 location);
     let sunRoundedValue = Math.round(result.CelestialBodies[0].TotalDegree);
+    console.log(sunRoundedValue);
 }
