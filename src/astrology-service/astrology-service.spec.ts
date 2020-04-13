@@ -5,7 +5,7 @@ import {WorldTimezoneRepository} from '../world-timezone-repository/world-timezo
 import moment from 'moment';
 import { IEphemerisRepository } from '../ephemeris-repository/ephemeris-repository.interface';
 import { IWorldTimezoneRepository } from '../world-timezone-repository/world-timezone-repository.interface';
-import { GeodeticLocation } from '../models/Location';
+import { GeodeticLocation } from '../models/GeodeticLocation';
 import {IAspectService} from '../aspect-service/aspect-service.interface'
 import { AspectService } from '../aspect-service/aspect-service';
 import { IOrbRepository } from '../orb-repository/orb-repository.interface';
@@ -48,7 +48,7 @@ describe("AstrologyService", () => {
         await astrologyService.Init();
     });
 
-    fit("should have sun at 275deg", () => {
+    it("should have sun at 275deg", () => {
         let location = new GeodeticLocation('58w27','34s36');
         let result = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
                                     'America/Argentina/Buenos_Aires', 
@@ -57,7 +57,7 @@ describe("AstrologyService", () => {
         expect(sunRoundedValue).toEqual(275);
     });
 
-    fit("should have neptune conjunct sun", () => {
+    it("should have neptune conjunct sun", () => {
         let location = new GeodeticLocation('58w27','34s36');
         let celestialBodies = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
                                     'America/Argentina/Buenos_Aires', 
@@ -67,7 +67,7 @@ describe("AstrologyService", () => {
         expect(true).toBeTrue();
     });
 
-    fit("should calculate placidus house system from date, time",()=>{
+    it("should calculate placidus house system from date, time",()=>{
         let location = new GeodeticLocation('58w27','34s36');
         let houses = astrologyService.CalculateHouseSystem(HouseSystemType.Placidus, 
                                                             moment('1984-12-26 19:00:00'),

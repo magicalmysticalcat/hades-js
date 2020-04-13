@@ -4,7 +4,7 @@ import {IEphemerisRepository} from '../ephemeris-repository/ephemeris-repository
 import {HouseSystemFactory} from '../houses-service/house-system-factory';
 import {TimeConversions} from '../time-conversions/time-conversions';
 import {IWorldTimezoneRepository} from '../world-timezone-repository/world-timezone-repository.interface'
-import { GeodeticLocation } from '../models/Location';
+import { GeodeticLocation } from '../models/GeodeticLocation';
 import { HouseSystemType } from '../houses-service/house-system-type';
 
 export class AstrologyService 
