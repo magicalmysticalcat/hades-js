@@ -1,6 +1,6 @@
 {
   "name": "@goldenius/hades-js",
-  "version": "2.0.0",
+  "version": "2.0.5",
   "description": "Calculate positions of the planets from an geocentric perspective, ASC, MC, houses and aspects providing date, time, and coordinates.",
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "prepare": "del-cli --force ./distribution && npm run build",
     "build": "tsc"
   },
+  "files": ["distribution/*"],
   "dependencies": {
     "@types/jasmine": "^3.4.0",
     "jasmine-core": "^3.3.0",
