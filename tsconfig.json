@@ -1,0 +1,18 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+      "module": "commonjs",
+      "outDir": "./distribution",
+      "target": "ES6",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports":true,
+      "allowJs": true,
+      "declaration": true,
+      "types" : [
+          "jasmine"
+      ]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "*.spec.*","coverage","global-tests"]
+}
