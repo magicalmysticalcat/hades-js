@@ -1,4 +1,4 @@
-export default class EphemerisDbLine
+export class EphemerisDbLine
 {
     constructor(order:number, columns: string []){
         this.Order = order;

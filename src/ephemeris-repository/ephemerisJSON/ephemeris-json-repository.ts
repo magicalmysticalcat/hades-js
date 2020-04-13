@@ -1,11 +1,11 @@
 import { IEphemerisRepository } from "../ephemeris-repository.interface";
 import moment from 'moment';
 import EphemerisSource from './resources/ephemerisDb.json'
-import EphemerisLine from "../../models/EphemerisLine";
-import EphemerisDbLine from "./model/EphemerisDbLine";
-import EphemerisDbYear from "./model/EphemerisDbYear";
+import {EphemerisLine} from "../../models/EphemerisLine";
+import {EphemerisDbLine} from "./model/EphemerisDbLine";
+import {EphemerisDbYear} from "./model/EphemerisDbYear";
 import { EphemerisDbLineColumnIndex } from "./model/EphemerisDbLineColumnIndex";
-import CelestialBody from "../../models/CelestialBody";
+import {CelestialBody} from "../../models/CelestialBody";
 import { TimeConversions } from "../../time-conversions/time-conversions";
 
 export class EphemerisJSONRepository implements IEphemerisRepository{

@@ -10,7 +10,6 @@ import {IAspectService} from '../aspect-service/aspect-service.interface'
 import { AspectService } from '../aspect-service/aspect-service';
 import { IOrbRepository } from '../orb-repository/orb-repository.interface';
 import { OrbJSONRepository } from '../orb-repository/orb-json-repository';
-import CelestialBody from '../models/CelestialBody';
 import { HouseSystemFactory } from '../houses-service/house-system-factory';
 import { TrigonometricUtilities } from '../trigonometric-utilities/trigonometric-utilities';
 import { ZodiacFactory } from '../zodiac-service/zodiac-factory';

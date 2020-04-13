@@ -1,5 +1,5 @@
 import * as  moment from 'moment';
-import EphemerisLine from '../models/EphemerisLine';
+import {EphemerisLine} from '../models/EphemerisLine';
 
 export interface IEphemerisRepository
 {

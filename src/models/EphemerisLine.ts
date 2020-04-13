@@ -1,6 +1,6 @@
-import CelestialBody from "./CelestialBody";
+import {CelestialBody} from "./CelestialBody";
 
-export default class EphemerisLine
+export class EphemerisLine
 {
     SiderealTime : number;
     JulianDay: number;

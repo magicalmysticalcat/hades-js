@@ -1,4 +1,4 @@
-class CelestialBody 
+export class CelestialBody 
 {
     public Id: string;
     public Name: string;
@@ -10,7 +10,5 @@ class CelestialBody
         this.TotalDegree = totalDegree;
         this.Name = name;
         this.IsRetrograde = false;
-        this.Id = '';
     }
 }
-export default CelestialBody;

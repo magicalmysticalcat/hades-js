@@ -1,4 +1,4 @@
-import CelestialBody from "../models/CelestialBody";
+import {CelestialBody} from "../models/CelestialBody";
 import { IOrbRepository } from "../orb-repository/orb-repository.interface";
 import Aspects from './resources/aspects.json';
 import { AnalyzedRelationship } from "./model/AnalyzedRelationship";

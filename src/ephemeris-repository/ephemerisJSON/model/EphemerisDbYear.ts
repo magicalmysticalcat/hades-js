@@ -1,4 +1,4 @@
-export default class EphemerisDbYear {
+export class EphemerisDbYear {
     year: number;
     days: string[][];
 }
