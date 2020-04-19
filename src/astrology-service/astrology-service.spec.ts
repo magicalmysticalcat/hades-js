@@ -14,6 +14,7 @@ import { HouseSystemFactory } from '../houses-service/house-system-factory';
 import { TrigonometricUtilities } from '../trigonometric-utilities/trigonometric-utilities';
 import { ZodiacFactory } from '../zodiac-service/zodiac-factory';
 import { HouseSystemType } from '../houses-service/house-system-type';
+import { RetrogradesService } from '../retrogades-service/retrogades-service';
 
 describe("AstrologyService", () => {
 
@@ -26,9 +27,11 @@ describe("AstrologyService", () => {
     let houseSystemFactory: HouseSystemFactory;
     let trigonometricUtilities: TrigonometricUtilities;
     let zodiacFactory: ZodiacFactory;
+    let retrogradesService: RetrogradesService;
 
     timeConversions = new TimeConversions();
-    ephemerisJSONRepository = new EphemerisJSONRepository(timeConversions);
+    retrogradesService = new RetrogradesService();
+    ephemerisJSONRepository = new EphemerisJSONRepository(timeConversions,retrogradesService);
     worldTimezoneRepository = new WorldTimezoneRepository();
     orbRepository = new OrbJSONRepository();
     aspectService = new AspectService(orbRepository);

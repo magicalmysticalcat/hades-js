@@ -7,13 +7,15 @@ import {EphemerisDbYear} from "./model/EphemerisDbYear";
 import { EphemerisDbLineColumnIndex } from "./model/EphemerisDbLineColumnIndex";
 import {CelestialBody} from "../../models/CelestialBody";
 import { TimeConversions } from "../../time-conversions/time-conversions";
+import { IRetrogradesService } from "../../retrogades-service/retrogrades-service.interface";
 
 export class EphemerisJSONRepository implements IEphemerisRepository{
 
     private ephemerisDb = EphemerisSource as any;
 
     constructor(
-        private timeConversions: TimeConversions
+        private timeConversions: TimeConversions,
+        private retrogradesService: IRetrogradesService
     ){}
 
     public Load(): void {
@@ -49,10 +51,14 @@ export class EphemerisJSONRepository implements IEphemerisRepository{
         previousDateLine: EphemerisDbLine, 
         newestDateLine: EphemerisDbLine): CelestialBody
     {
+        let previousPosition = parseFloat(previousDateLine.Columns[planetIndex]);
+        let newestPosition = parseFloat(newestDateLine.Columns[planetIndex]);
         let degreeForPlanet = this.GetDegreeForPlanet(eventTime,
-                                                    parseFloat(previousDateLine.Columns[planetIndex]),
-                                                    parseFloat(newestDateLine.Columns[planetIndex]));
-        return new CelestialBody(degreeForPlanet,EphemerisDbLineColumnIndex[planetIndex]);
+                                                    previousPosition,
+                                                    newestPosition);
+        let planet = new CelestialBody(degreeForPlanet,EphemerisDbLineColumnIndex[planetIndex]);
+        planet.IsRetrograde = this.retrogradesService.IsRetrograde(previousPosition,newestPosition);
+        return planet;
     }
 
     private GetDegreeForPlanet(eventTimeInDecimal: number, planetDegreeLower: number, planetDegreeHigher: number): number
@@ -83,7 +89,7 @@ export class EphemerisJSONRepository implements IEphemerisRepository{
 
     private GetEphemerisLineForDate(date: moment.Moment): string []
     {
-        let formattedDate = date.year()+'-'+(date.month()+1)+'-'+date.date();
+        let formattedDate = date.format('YYYY-MM-DD');
 
         let ephemerisDbYear = this.ephemerisDb.find((ephemerisDbYear: EphemerisDbYear)=>
                     {
@@ -95,11 +101,12 @@ export class EphemerisJSONRepository implements IEphemerisRepository{
 
         let day = ephemerisDbYear.days.find((day: string [])=>
                     {
-                        if(day[0]==formattedDate)
+                        if(day[0]===formattedDate)
                         {
                             return day;
                         }
                     });
+        
         return day;
     }
 
