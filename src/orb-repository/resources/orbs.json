@@ -82,5 +82,47 @@
         "Square":7, 
         "Trine":7, 
         "Sextile":5
+    },
+    "Chiron":{
+        "Conjunction":7, 
+        "Opposition":7, 
+        "Square":7, 
+        "Trine":7, 
+        "Sextile":5
+    },
+    "Vertex":{
+        "Conjunction":7, 
+        "Opposition":7, 
+        "Square":7, 
+        "Trine":7, 
+        "Sextile":5
+    },
+    "Ceres":{
+        "Conjunction":7, 
+        "Opposition":7, 
+        "Square":7, 
+        "Trine":7, 
+        "Sextile":5
+    },
+    "Pallas":{
+        "Conjunction":7, 
+        "Opposition":7, 
+        "Square":7, 
+        "Trine":7, 
+        "Sextile":5
+    },
+    "Juno":{
+        "Conjunction":7, 
+        "Opposition":7, 
+        "Square":7, 
+        "Trine":7, 
+        "Sextile":5
+    },
+    "Vesta":{
+        "Conjunction":7, 
+        "Opposition":7, 
+        "Square":7, 
+        "Trine":7, 
+        "Sextile":5
     }
 }
