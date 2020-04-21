@@ -1,13 +1,16 @@
 
-# Hades-js
+# Hades-js v2.1.2
 
-Don't use this module comercially. It's not stable and I'm still working on the tests and improvements like retrogrades, mid-points, etc.
+Don't use this module comercially. It's not stable and I'm still working on the tests and improvements like mid-points, other house systems, more minor aspects, etc.
 
 ### Features
 
-- Planetary positions from a geocentric point of view.
-- Placidus and Fixed house systems.
+- Celestial body positions from a geocentric point of view.
+- Supported celestial bodies: Sun, Moon, Mercury, Venus, Mars, Jupiter, Pluto, Saturn, Uranus, Neptune,
+  Mean Node, True Node, Chiron, Ceres, Pallas, Juno, Vesta. Support for retrogrades.
+- Placidus house system calculation.
 - ASC, MC, Julian day and sidereal time.
+- Aspects: Conjunction, Opposition, Square, Trine, Sextile.
 
 #### Install
 
