@@ -9,3 +9,4 @@ export {AspectService} from './aspect-service/aspect-service';
 export {OrbJSONRepository} from './orb-repository/orb-json-repository';
 export {GeodeticLocation} from './models/GeodeticLocation';
 export {HouseSystemType} from './houses-service/house-system-type';
+export {RetrogradesService} from './retrogades-service/retrogades-service';
