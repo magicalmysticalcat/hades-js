@@ -48,7 +48,7 @@ let astrologyService = new AstrologyService(ephemerisJSONRepository,
                                         aspectService,
                                         houseSystemFactory);
 
-let location = new GeodeticLocation('58w27','34s36');
+let location = new GeodeticLocation('-58.45','-34.6');
 let date = moment('1984-11-18 14:00:00');
 let timezone = 'America/Argentina/Buenos_Aires';
 
