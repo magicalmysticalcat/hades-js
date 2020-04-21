@@ -30,7 +30,7 @@ const {AstrologyService, AspectService,
     TrigonometricUtilities,HouseSystemFactory,
     TimeConversions, WorldTimezoneRepository, 
     ZodiacFactory, GeodeticLocation, HouseSystemType,
-    RetrogradesService} = require("../distribution/index.js");
+    RetrogradesService} = require("@goldenius/hades-js");
 const moment = require('moment-timezone');
 
 let timeConversions = new TimeConversions();
