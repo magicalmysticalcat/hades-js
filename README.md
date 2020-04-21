@@ -25,22 +25,24 @@ The easiest way to retrieve planetary positions with aspects and house calculati
 for example:
 ```javascript
 
-import {AstrologyService, AspectService, 
+const {AstrologyService, AspectService, 
     EphemerisJSONRepository, OrbJSONRepository, 
     TrigonometricUtilities,HouseSystemFactory,
     TimeConversions, WorldTimezoneRepository, 
-    ZodiacFactory, GeodeticLocation, HouseSystemType} from '@goldenius/hades-js';
-import * as moment from 'moment-timezone';
-
+    ZodiacFactory, GeodeticLocation, HouseSystemType,
+    RetrogradesService} = require("../distribution/index.js");
+const moment = require('moment-timezone');
 
 let timeConversions = new TimeConversions();
-let ephemerisJSONRepository = new EphemerisJSONRepository(timeConversions);
+let retrogradesService = new RetrogradesService();
+let ephemerisJSONRepository = new EphemerisJSONRepository(timeConversions,retrogradesService);
 let worldTimezoneRepository = new WorldTimezoneRepository();
 let orbRepository = new OrbJSONRepository();
 let aspectService = new AspectService(orbRepository);
 let trigonometricUtilities = new TrigonometricUtilities();
 let zodiacFactory = new ZodiacFactory();
 let houseSystemFactory = new HouseSystemFactory(trigonometricUtilities,zodiacFactory);
+
 
 let astrologyService = new AstrologyService(ephemerisJSONRepository, 
                                         timeConversions, 
