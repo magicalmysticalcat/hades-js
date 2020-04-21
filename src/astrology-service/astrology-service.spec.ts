@@ -60,13 +60,13 @@ describe("AstrologyService", () => {
         expect(sunRoundedValue).toEqual(275);
     });
 
-    xit("should have pallas at 341deg", () => {
+    it("should have pallas at 341deg", () => {
         let location = new GeodeticLocation('-58.45','-34.6');
         let result = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
                                     'America/Argentina/Buenos_Aires', 
                                     location);
-        let roundedValue = (result.CelestialBodies[EphemerisDbLineColumnIndex.Pallas-3].TotalDegree).toFixed(0);
-        expect(roundedValue).toEqual("341");
+        let roundedValue = Math.floor(result.CelestialBodies[EphemerisDbLineColumnIndex.Pallas-3].TotalDegree);
+        expect(roundedValue).toEqual(341);
     });
 
     it("should have sun at 275deg", () => {
@@ -88,7 +88,7 @@ describe("AstrologyService", () => {
         expect(true).toBeTrue();
     });
 
-    fit("should have ascendant at 20deg Gemini",()=>{
+    it("should have ascendant at 20deg Gemini",()=>{
         let location = new GeodeticLocation('-58.45','-34.6');
         let houses = astrologyService.CalculateHouseSystem(HouseSystemType.Placidus, 
                                                             moment('1984-12-26 19:00:00'),
@@ -98,7 +98,6 @@ describe("AstrologyService", () => {
         let degree = parseInt(house1.RelativeDistance);
         let signName = house1.Sign.Name;
         
-
         expect(degree).toBe(20);
         expect(signName).toBe('Gemini');
     });
