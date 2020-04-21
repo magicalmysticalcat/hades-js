@@ -13,5 +13,13 @@ export enum EphemerisDbLineColumnIndex {
     Neptune,
     Pluto,
     MeanNode,
-    TrueNode
+    TrueNode,
+    Chiron,
+    Vertex,
+    Ceres,
+    Pallas,
+    Juno,
+    Vesta,
+    Retrogrades,
+    IngressTimes
 }

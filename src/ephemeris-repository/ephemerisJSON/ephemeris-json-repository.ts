@@ -42,7 +42,15 @@ export class EphemerisJSONRepository implements IEphemerisRepository{
         ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.Uranus, olderLine, newestLine));
         ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.Neptune, olderLine, newestLine));
         ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.Pluto, olderLine, newestLine));
+        ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.MeanNode, olderLine, newestLine));
         ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.TrueNode, olderLine, newestLine));
+        ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.Chiron, olderLine, newestLine));
+        ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.Vertex, olderLine, newestLine));
+        ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.Ceres, olderLine, newestLine));
+        ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.Pallas, olderLine, newestLine));
+        ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.Juno, olderLine, newestLine));
+        ephemerisLine.CelestialBodies.push(this.CreatePlanet(eventTimeInDecimal, EphemerisDbLineColumnIndex.Vesta, olderLine, newestLine));
+
         return ephemerisLine;
     }
 
@@ -57,7 +65,10 @@ export class EphemerisJSONRepository implements IEphemerisRepository{
                                                     previousPosition,
                                                     newestPosition);
         let planet = new CelestialBody(degreeForPlanet,EphemerisDbLineColumnIndex[planetIndex]);
-        planet.IsRetrograde = this.retrogradesService.IsRetrograde(previousPosition,newestPosition);
+        let retrogrades = previousDateLine.Columns[EphemerisDbLineColumnIndex.Retrogrades];
+        let ingressTimes = previousDateLine.Columns[EphemerisDbLineColumnIndex.IngressTimes];
+        planet.IsRetrograde = this.retrogradesService.IsRetrograde(retrogrades, ingressTimes, planetIndex, eventTime);
+        
         return planet;
     }
 
@@ -72,7 +83,7 @@ export class EphemerisJSONRepository implements IEphemerisRepository{
     {
         let ephemerisLines = [];
         let ephemerisLineForRequestedDate = this.GetEphemerisLineForDate(date);
-        ephemerisLines.push({order:0, ephemerisLine:ephemerisLineForRequestedDate});
+        ephemerisLines.push(new EphemerisDbLine(0, ephemerisLineForRequestedDate));
 
         for(let i=1;i<=dayPadding;i++)
         {

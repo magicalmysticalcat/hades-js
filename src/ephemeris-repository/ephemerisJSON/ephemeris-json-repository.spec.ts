@@ -48,7 +48,7 @@ describe("EphemerisJSONRepository", () => {
     });
 
     it('should not have mercury retrograde',()=>{
-        let line = ephemerisJSONRepository.GetLine(moment('2020-06-18 22:00:00'),-57);
+        let line = ephemerisJSONRepository.GetLine(moment('2020-06-18 02:00:00'),-57);
         let result = false;
         line.CelestialBodies.forEach(celestialBody => {
             if(celestialBody.Name==='Mercury' &&
@@ -61,7 +61,7 @@ describe("EphemerisJSONRepository", () => {
     });
 
     it('should have saturn retrograde',()=>{
-        let line = ephemerisJSONRepository.GetLine(moment('2020-05-11 22:00:00'),-57);
+        let line = ephemerisJSONRepository.GetLine(moment('2020-05-11 22:00:00'),0);
         let result = false;
         line.CelestialBodies.forEach(celestialBody => {
             if(celestialBody.Name==='Saturn' &&
