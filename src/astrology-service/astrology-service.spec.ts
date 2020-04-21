@@ -15,6 +15,7 @@ import { TrigonometricUtilities } from '../trigonometric-utilities/trigonometric
 import { ZodiacFactory } from '../zodiac-service/zodiac-factory';
 import { HouseSystemType } from '../houses-service/house-system-type';
 import { RetrogradesService } from '../retrogades-service/retrogades-service';
+import { EphemerisDbLineColumnIndex } from '../ephemeris-repository/ephemerisJSON/model/EphemerisDbLineColumnIndex';
 
 describe("AstrologyService", () => {
 
@@ -51,7 +52,25 @@ describe("AstrologyService", () => {
     });
 
     it("should have sun at 275deg", () => {
-        let location = new GeodeticLocation('58w27','34s36');
+        let location = new GeodeticLocation('-58.45','-34.6');
+        let result = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
+                                    'America/Argentina/Buenos_Aires', 
+                                    location);
+        let sunRoundedValue = Math.round(result.CelestialBodies[0].TotalDegree);
+        expect(sunRoundedValue).toEqual(275);
+    });
+
+    xit("should have pallas at 341deg", () => {
+        let location = new GeodeticLocation('-58.45','-34.6');
+        let result = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
+                                    'America/Argentina/Buenos_Aires', 
+                                    location);
+        let roundedValue = (result.CelestialBodies[EphemerisDbLineColumnIndex.Pallas-3].TotalDegree).toFixed(0);
+        expect(roundedValue).toEqual("341");
+    });
+
+    it("should have sun at 275deg", () => {
+        let location = new GeodeticLocation('-58.45','-34.6');
         let result = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
                                     'America/Argentina/Buenos_Aires', 
                                     location);
@@ -60,7 +79,7 @@ describe("AstrologyService", () => {
     });
 
     it("should have neptune conjunct sun", () => {
-        let location = new GeodeticLocation('58w27','34s36');
+        let location = new GeodeticLocation('-58.45','-34.6');
         let celestialBodies = astrologyService.CalculateCelestialBodiesAndTime(moment('1984-12-26 19:00:00'),
                                     'America/Argentina/Buenos_Aires', 
                                     location).CelestialBodies;
@@ -69,13 +88,18 @@ describe("AstrologyService", () => {
         expect(true).toBeTrue();
     });
 
-    it("should calculate placidus house system from date, time",()=>{
-        let location = new GeodeticLocation('58w27','34s36');
+    fit("should have ascendant at 20deg Gemini",()=>{
+        let location = new GeodeticLocation('-58.45','-34.6');
         let houses = astrologyService.CalculateHouseSystem(HouseSystemType.Placidus, 
                                                             moment('1984-12-26 19:00:00'),
                                                             'America/Argentina/Buenos_Aires',
                                                             location);
+        let house1 = houses[0];
+        let degree = parseInt(house1.RelativeDistance);
+        let signName = house1.Sign.Name;
+        
 
-        expect(true).toBeTrue();
+        expect(degree).toBe(20);
+        expect(signName).toBe('Gemini');
     });
 });
