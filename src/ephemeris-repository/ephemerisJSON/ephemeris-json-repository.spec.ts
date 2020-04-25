@@ -16,8 +16,8 @@ describe("EphemerisJSONRepository", () => {
     ephemerisJSONRepository = new EphemerisJSONRepository(timeConversions,retrogradesService);
     ephemerisJSONRepository.Load();
 
-    xit("should match natal chart 1", () => {
-        let result = ephemerisJSONRepository.GetLine(moment('1984-12-26 22:00:00'),-57);
+    xit("should fail", () => {
+         expect(true).toBeFalse();
     });
 
     it('should have mercury retrograde',()=>{
