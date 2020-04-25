@@ -17,28 +17,28 @@
   "main": "./distribution/index.js",
   "types": "./distribution/index.d.ts",
   "scripts": {
-    "test": "karma start",
+    "test": "npm run prepare && jasmine",
     "test-library": "npm run prepare && npm run dev",
     "dev": "node ./global-tests/librarytest.js",
     "prepare": "del-cli --force ./distribution && npm run build",
     "build": "tsc"
   },
-  "files": ["distribution/*"],
+  "files": [
+    "distribution/*"
+  ],
   "dependencies": {
-    "@types/jasmine": "^3.4.0",
     "jasmine-core": "^3.3.0",
-    "karma": "^4.3.0",
-    "karma-chrome-launcher": "^3.1.0",
-    "karma-cli": "^2.0.0",
-    "karma-jasmine": "^2.0.1",
-    "karma-typescript": "latest",
     "meeusjs": "^1.0.4",
-    "typescript": "latest",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.21",
     "moment-timezone-all": "^0.5.5"
   },
   "devDependencies": {
-    "del-cli": "^3.0.0"
+    "@types/jasmine": "^3.5.10",
+    "del-cli": "^3.0.0",
+    "jasmine": "^3.5.0",
+    "jasmine-ts": "^0.3.0",
+    "jasmine-ts-console-reporter": "^3.1.1",
+    "typescript": "^3.8.3"
   }
 }
