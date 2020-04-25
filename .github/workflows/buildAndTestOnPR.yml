@@ -29,7 +29,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run build
-    - run: karma start
+    - run: npm run test
       env:
         CI: true
     
