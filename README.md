@@ -1,7 +1,7 @@
 ![GitHub](https://img.shields.io/github/license/magicalmysticalcat/hades-js?style=flat-square)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/magicalmysticalcat/hades-js)
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/magicalmysticalcat/hades-js/implementation%20tests%20(master)/master?label=implementation%20tests%20%28master%29&style=flat-square)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/magicalmysticalcat/hades-js/implementation%20tests%20(master)/master?label=integration%20tests%20%28master%29&style=flat-square)
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/magicalmysticalcat/hades-js/unit%20tests%20(master)/master?label=unit%20tests%20%28master%29&style=flat-square)
 
 # Hades-js
