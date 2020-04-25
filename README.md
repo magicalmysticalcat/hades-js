@@ -4,7 +4,7 @@
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/magicalmysticalcat/hades-js/implementation%20tests%20(master)/master?label=implementation%20tests%20%28master%29&style=flat-square)
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/magicalmysticalcat/hades-js/unit%20tests%20(master)/master?label=unit%20tests%20%28master%29&style=flat-square)
 
-# Hades-js v2.1.2
+# Hades-js
 
 Don't use this module comercially. It's not stable and I'm still working on the tests and improvements like mid-points, other house systems, more minor aspects, etc.
 
