@@ -23,6 +23,6 @@ module.exports = function(config) {
         }
       },
       browsers: ["ChromeDebugging"],
-      singleRun: false
+      singleRun: true
   });
 };
