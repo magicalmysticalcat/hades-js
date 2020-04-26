@@ -66,7 +66,7 @@ export class AspectService implements IAspectService{
 		return aspects;
 	}
 
-	private IsAspected(distance:number, 
+	public IsAspected(distance:number, 
 				celestialBody:CelestialBody, 
 				aspectName:string,
 				aspectValue:number):boolean

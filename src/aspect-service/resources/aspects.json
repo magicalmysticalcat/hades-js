@@ -3,5 +3,11 @@
     "Square":90,
     "Opposition":180,
     "Sextile":60,
-    "Trine":120
+    "Trine":120,
+    "Semisextile":30,
+    "Semisquare":45,
+    "Sesquisquare":135,
+    "Quincunx":150,
+    "Quintile":72,
+    "Biquintile":144
 }
